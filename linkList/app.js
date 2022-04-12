@@ -98,6 +98,7 @@ class LinkedList{
 
     //shift
     //remove the first node from list
+    //no loop o(1)
     shift(){
         if(!this.head){
             return undefined
@@ -114,7 +115,84 @@ class LinkedList{
         
     }
 
+    //Get
+    //get value from given index
 
+
+    get(index){
+        let temp=this.head
+        if(!this.head){
+            return undefined
+        }
+        if(index<0|| index>=this.length){
+            return false
+        }
+        for(let i=0;i<index;i++){
+            temp=this.head.next
+            
+
+        }
+        return temp
+
+    }
+
+    //set
+    //set or replace value on particular place
+
+
+    set(index,value){
+        let temp=this.get(index)
+        if(temp){
+            temp.value=value
+            return true
+        }
+        return false
+
+        
+
+
+
+
+    }
+
+    //insert
+
+    insert(index,value){
+        if(index===0){
+            return this.unshift(value)
+        }
+        if(index===this.length){
+            return this.push(value)
+        }
+        if(index<0 || index >this.length){
+            return false
+        }
+        const newNode=new Node(value)
+        let temp=this.get(index-1)
+        newNode.next=temp.next
+        temp.next=newNode
+        this.length++
+        return true
+    }
+    //remove
+
+    remove(index){
+        
+    }
+
+
+
+// if(index===0){
+//             return this.unshift(value)
+//         }
+//         if(index===this.length){
+//             return this.push(value)
+//         }
+//         let temp=this.get(index)
+//         let pre=this.get(index-1)
+//         temp.next=pre.next
+//         pre.next=temp
+//         return true
 
 }
 
